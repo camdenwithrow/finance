@@ -8,6 +8,8 @@
   height: 1vh;
 }
 
+/* NAVBAR */
+
 .heading {
   display: flex;
   justify-content: space-between;
@@ -50,15 +52,15 @@
 }
 
 .login:active {
-    color: rgb(213, 213, 213);
+  color: rgb(213, 213, 213);
 }
 
 .login:active::after {
-    background-color: rgb(213, 213, 213);
+  background-color: rgb(213, 213, 213);
 }
 
 .login:hover::after {
-    opacity: 1;
+  opacity: 1;
 }
 
 .signup {
@@ -100,4 +102,55 @@
 .signup:active {
   background-color: rgb(213, 213, 213);
   color: rgb(68, 126, 68);
+}
+
+/* DASHBOARD */
+
+.container {
+  background-color: rgb(226, 234, 227);
+  padding: 3em;
+}
+
+.dash-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "worth worth"
+    "transact budget";
+  gap: 2em 2em;
+}
+
+.grid-worth {
+  grid-area: worth;
+}
+
+.grid-transact {
+  grid-area: transact;
+}
+
+.grid-budget {
+  grid-area: budget;
+}
+
+/* CARDS */
+
+.card {
+  background-color: white;
+  padding: 1em;
+  border-radius: 0.25em;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Net worth */
+.grid-worth h3 {
+    font-size: small;
+}
+
+.grid-worth p {
+    font-size: x-large;
+    margin-top: 0.5em;
 }
