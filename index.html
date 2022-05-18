@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="styles/networth.css" />
     <link rel="stylesheet" href="styles/transactions.css" />
     <link rel="stylesheet" href="styles/budget.css" />
+    <script
+      src="https://kit.fontawesome.com/b14c170271.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div class="dash">
@@ -31,7 +35,15 @@
             <div class="grid-budget">
               <div class="card">
                 <div class="card-head">
-                  <h3>Budget</h3>
+                  <div class="title-row">
+                    <h3>Budget</h3>
+                    <button class="edit-card">
+                      <i class="fa-solid fa-pen-to-square fa-xl"></i>
+                    </button>
+                    <button class="maximize-card">
+                      <i class="fa-solid fa-expand fa-xl"></i>
+                    </button>
+                  </div>
                   <div class="budget-head">
                     <div></div>
                     <div class="col"><p>Category</p></div>
@@ -45,9 +57,17 @@
             <div class="grid-transact">
               <div class="card">
                 <div class="card-head">
-                  <h3>Transactions</h3>
+                  <div class="title-row">
+                    <h3>Transactions</h3>
+                    <button class="edit-card">
+                      <i class="fa-solid fa-pen-to-square fa-xl"></i>
+                    </button>
+                    <button class="maximize-card">
+                      <i class="fa-solid fa-expand fa-xl"></i>
+                    </button>
+                  </div>
                   <div class="transact-head">
-                      <div></div>
+                    <div></div>
                     <div class="date">Date</div>
                     <div class="name">Name</div>
                     <div class="category">Category</div>

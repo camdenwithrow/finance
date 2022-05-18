@@ -59,9 +59,19 @@
   margin: 0.5rem;
 }
 
+.budget-item-container .text-right {
+    display: flex;
+    justify-content: end;
+}
+
 .budget-item p,
 .sub-budget p {
   margin: 0 0.5rem;
+}
+
+.sub-budget .category {
+    padding: 0 0.5em;
+    font-style: italic;
 }
 
 .budget-item .expand-budget {

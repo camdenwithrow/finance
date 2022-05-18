@@ -6,6 +6,10 @@
   font-family: sans-serif;
 }
 
+button {
+  background-color: transparent;
+}
+
 :root {
   --primary: rgba(32, 23, 172, 1);
   --secondary: rgba(0, 116, 213, 1);
@@ -265,4 +269,19 @@
 
 .card-head > h3 {
   margin: 0.5em;
+}
+
+.title-row {
+  display: grid;
+  grid-template-columns: auto 1.5em 1.5em;
+  gap: 1em;
+  margin-bottom: 0.5em;
+}
+
+.edit-card, .maximize-card {
+  cursor: pointer;
+}
+
+.edit-card:hover, .maximize-card:hover {
+  color: var(--secondary);
 }

@@ -7,7 +7,7 @@
   "budgetCategories": {
     "House": {
       "id": 2142314,
-      "budgeted": 500,
+      "budgeted": 1000,
       "actual": 400,
       "subCategories": {}
     },

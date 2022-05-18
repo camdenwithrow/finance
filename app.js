@@ -75,6 +75,9 @@ function getBudgets(categories) {
     const budgetItemContainer = document.createElement("div");
     const budgetItem = document.createElement("div");
     const actionItem = document.createDocumentFragment();
+    const categoryDiv = document.createElement("div");
+    const budgetAmtDiv = document.createElement("div");
+    const actualAmtDiv = document.createElement("div");
     const category = document.createElement("p");
     const budgetAmt = document.createElement("p");
     const actualAmt = document.createElement("p");
@@ -82,7 +85,7 @@ function getBudgets(categories) {
     const subCategories = categories[key]["subCategories"];
     const subBudgetContainer = document.createElement("div");
 
-    console.log(subCategories)
+    console.log(subCategories);
 
     if (Object.keys(subCategories).length > 0) {
       const button = document.createElement("button");
@@ -100,18 +103,28 @@ function getBudgets(categories) {
 
         const subBudget = document.createElement("div");
         const placeholder = document.createElement("div");
+        const subCategoryDiv = document.createElement("div");
+        const subBudgetAmtDiv = document.createElement("div");
+        const subActualAmtDiv = document.createElement("div");
         const subCategory = document.createElement("p");
         const subBudgetAmt = document.createElement("p");
         const subActualAmt = document.createElement("p");
 
         subBudgetContainer.appendChild(subBudget);
         subBudget.appendChild(placeholder);
-        subBudget.appendChild(subCategory);
-        subBudget.appendChild(subBudgetAmt);
-        subBudget.appendChild(subActualAmt);
+        subBudget.appendChild(subCategoryDiv);
+        subBudget.appendChild(subBudgetAmtDiv);
+        subBudget.appendChild(subActualAmtDiv);
+
+        subCategoryDiv.appendChild(subCategory);
+        subBudgetAmtDiv.appendChild(subBudgetAmt);
+        subActualAmtDiv.appendChild(subActualAmt);
 
         subBudgetContainer.classList.add("sub-budget-container", "sub-hidden");
         subBudget.classList.add("sub-budget");
+        subCategory.classList.add("category");
+        subBudgetAmtDiv.classList.add("text-right");
+        subActualAmtDiv.classList.add("text-right");
 
         subCategory.innerText = name;
         subActualAmt.innerText = formatAsDollar(subActualNum);
@@ -127,14 +140,20 @@ function getBudgets(categories) {
     budgetItemContainer.appendChild(subBudgetContainer);
 
     budgetItem.appendChild(actionItem);
-    budgetItem.appendChild(category);
-    budgetItem.appendChild(budgetAmt);
-    budgetItem.appendChild(actualAmt);
+    budgetItem.appendChild(categoryDiv);
+    budgetItem.appendChild(budgetAmtDiv);
+    budgetItem.appendChild(actualAmtDiv);
+
+    categoryDiv.appendChild(category);
+    budgetAmtDiv.appendChild(budgetAmt);
+    actualAmtDiv.appendChild(actualAmt);
 
     budgetItemContainer.classList.add("budget-item-container");
 
     budgetItem.setAttribute("id", id);
     budgetItem.classList.add("budget-item");
+    budgetAmtDiv.classList.add("text-right");
+    actualAmtDiv.classList.add("text-right");
     category.classList.add("category");
     budgetAmt.classList.add("budget-amt");
     actualAmt.classList.add("actual-amt");
