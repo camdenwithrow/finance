@@ -2,11 +2,17 @@
   margin: 0;
   padding: 0;
   border: 0;
+  box-sizing: border-box;
 }
 
 .dash {
-  height: 1vh;
+  height: 100vh;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 4em 1fr;
 }
+
+/* NAVBAR */
 
 .heading {
   display: flex;
@@ -50,15 +56,15 @@
 }
 
 .login:active {
-    color: rgb(213, 213, 213);
+  color: rgb(213, 213, 213);
 }
 
 .login:active::after {
-    background-color: rgb(213, 213, 213);
+  background-color: rgb(213, 213, 213);
 }
 
 .login:hover::after {
-    opacity: 1;
+  opacity: 1;
 }
 
 .signup {
@@ -101,3 +107,61 @@
   background-color: rgb(213, 213, 213);
   color: rgb(68, 126, 68);
 }
+
+/* DASHBOARD */
+
+.container {
+  background-color: rgb(226, 234, 227);
+  padding: 3em;
+}
+
+.dash-grid {
+  display: grid;
+  grid-template-columns: 34% 66%;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "worth worth"
+    "budget transact";
+  gap: 2em 2em;
+}
+
+.grid-worth {
+  grid-area: worth;
+}
+
+.grid-transact {
+  grid-area: transact;
+}
+
+.grid-budget {
+  grid-area: budget;
+}
+
+@media only screen and (max-width: 900px) {
+  .dash-grid {
+    display: block;
+  }
+
+  .dash-grid > * {
+    margin: 2em 0;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .dash-grid {
+    grid-template-columns: 50% 50%;
+  }
+}
+
+/* CARDS */
+
+.card {
+  background-color: white;
+  padding: 1em;
+  border-radius: 0.25em;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
