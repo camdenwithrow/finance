@@ -25,7 +25,7 @@
             <div class="grid-worth">
               <div class="card">
                 <h3>NET WORTH</h3>
-                <p>$XXX,XXX.XX</p>
+                <p id="net-worth">$XXX,XXX.XX</p>
               </div>
             </div>
             <div class="grid-budget">
@@ -39,52 +39,7 @@
                     <div class="col"><p>Actual</p></div>
                   </div>
                 </div>
-                <div class="card-body">
-                  <div class="budget-item-container">
-                    <div class="budget-item">
-                      <button class="expand-budget">
-                        <i class="arrow right"></i>
-                      </button>
-                      <p class="category">Home</p>
-                      <p class="budget-expenditure">$1000</p>
-                      <p class="actual-expenditure">$1000</p>
-                    </div>
-                  </div>
-                  <div class="budget-item-container">
-                    <div class="budget-item">
-                      <button class="expand-budget">
-                        <i class="arrow right"></i>
-                      </button>
-                      <p>Food</p>
-                      <p>$400</p>
-                      <p>$1000</p>
-                    </div>
-                    <div class="sub-budget-container">
-                      <div class="sub-budget">
-                        <div></div>
-                        <p>Groceries</p>
-                        <p>$150</p>
-                        <p>$500</p>
-                      </div>
-                      <div class="sub-budget">
-                        <div></div>
-                        <p>Restaurants</p>
-                        <p>$250</p>
-                        <p>$500</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="budget-item-container">
-                    <div class="budget-item">
-                      <button class="expand-budget">
-                        <i class="arrow right"></i>
-                      </button>
-                      <p>Transportation</p>
-                      <p>$300</p>
-                      <p>$1000</p>
-                    </div>
-                  </div>
-                </div>
+                <div class="card-body" id="budget"></div>
               </div>
             </div>
             <div class="grid-transact">
@@ -92,10 +47,7 @@
                 <div class="card-head">
                   <h3>Transactions</h3>
                   <div class="transact-head">
-                    <label class="check-container">
-                      <input type="checkbox" checked="checked" />
-                      <span class="checkmark"></span>
-                    </label>
+                      <div></div>
                     <div class="date">Date</div>
                     <div class="name">Name</div>
                     <div class="category">Category</div>
@@ -103,38 +55,7 @@
                   </div>
                 </div>
                 <div class="card-body">
-                  <div class="transact-container">
-                    <div class="transact">
-                      <label class="check-container">
-                        <input type="checkbox" checked="checked" />
-                        <span class="checkmark"></span>
-                      </label>
-                      <div class="date">12/12</div>
-                      <div class="name">Chipotle</div>
-                      <div class="category">Restaurants</div>
-                      <div class="amount">$1000.59</div>
-                    </div>
-                    <div class="transact">
-                      <label class="check-container">
-                        <input type="checkbox" checked="checked" />
-                        <span class="checkmark"></span>
-                      </label>
-                      <div class="date">12/12</div>
-                      <div class="name">Chipotle</div>
-                      <div class="category">Restaurants</div>
-                      <div class="amount">$1000.59</div>
-                    </div>
-                    <div class="transact">
-                      <label class="check-container">
-                        <input type="checkbox" checked="checked" />
-                        <span class="checkmark"></span>
-                      </label>
-                      <div class="date">12/12</div>
-                      <div class="name">Chipotle</div>
-                      <div class="category">Restaurants</div>
-                      <div class="amount">$1000.59</div>
-                    </div>
-                  </div>
+                  <div class="transact-container" id="transactions"></div>
                 </div>
               </div>
             </div>

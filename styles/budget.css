@@ -4,7 +4,7 @@
 }
 
 .budget-head {
-    border-bottom: 2px solid grey;
+  border-bottom: 2px solid grey;
 }
 
 .budget-head,
@@ -29,10 +29,20 @@
 }
 
 .sub-budget p:first-of-type:before {
-    content: "-";
-    position: absolute;
-    top: -0.125em;
-    left: -0.75em;
+  content: "-";
+  position: absolute;
+  top: -0.125em;
+  left: -0.75em;
+}
+
+.sub-budget-container {
+  transition: height 0.5s ease;
+  overflow: hidden;
+  text-transform: capitalize;
+}
+
+.sub-hidden {
+  display: none;
 }
 
 .budget-head {
@@ -42,7 +52,7 @@
 }
 
 .budget-item-container {
-    margin: 0.5rem 0;
+  margin: 0.5rem 0;
 }
 
 .budget-head p {
@@ -51,14 +61,17 @@
 
 .budget-item p,
 .sub-budget p {
-    margin: 0 0.5rem;
+  margin: 0 0.5rem;
 }
 
 .budget-item .expand-budget {
   background-color: transparent;
+  cursor: pointer;
 }
 
 .arrow {
+  pointer-events: none;
+
   border: solid black;
   border-width: 0 3px 3px 0;
   display: inline-block;

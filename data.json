@@ -1,0 +1,104 @@
+{
+  "worth": {
+    "cash": 12345,
+    "investments": 9876,
+    "other": 5555
+  },
+  "budgetCategories": {
+    "House": {
+      "id": 2142314,
+      "budgeted": 500,
+      "actual": 400,
+      "subCategories": {}
+    },
+    "Utilities": {
+      "id": 452345,
+      "budgeted": 500,
+      "actual": 400,
+      "subCategories": {}
+    },
+    "Food": {
+      "id": 23462346,
+      "budgeted": 500,
+      "actual": 400,
+      "subCategories": {
+        "Restaurants": { "id": 23525, "budgeted": 500, "actual": 400 },
+        "Groceries": { "id": 23462346, "budgeted": 500, "actual": 400 }
+      }
+    },
+    "Transportation": {
+      "id": 234346346,
+      "budgeted": 500,
+      "actual": 400,
+      "subCategories": {
+        "gas": { "id": 45635645, "budgeted": 20, "actual": 10 },
+        "rideShare": { "id": 23456235, "budgeted": 50, "actual": 40 }
+      }
+    },
+    "Insurance": {
+      "id": 34564563,
+      "budgeted": 500,
+      "actual": 400,
+      "subCategories": {}
+    },
+    "Personal": {
+      "id": 5467567,
+      "budgeted": 500,
+      "actual": 400,
+      "subCategories": {}
+    },
+    "Savings": {
+      "id": 5234523,
+      "budgeted": 500,
+      "actual": 400,
+      "subCategories": {}
+    },
+    "Giving": {
+      "id": 8765653,
+      "budgeted": 500,
+      "actual": 400,
+      "subCategories": {}
+    },
+    "Fun": {
+      "id": 654344,
+      "budgeted": 500,
+      "actual": 400,
+      "subCategories": {}
+    },
+    "Clothes": {
+      "id": 546375735,
+      "budgeted": 500,
+      "actual": 400,
+      "subCategories": {}
+    },
+    "Travel": {
+      "id": 242342535,
+      "budgeted": 500,
+      "actual": 400,
+      "subCategories": {}
+    }
+  },
+  "transactions": [
+    {
+      "id": 3242343464562,
+      "date": "2022-04-23T18:25:43.511Z",
+      "name": "Chipotle",
+      "category": "Food",
+      "amount": 12.55
+    },
+    {
+      "id": 345234623463,
+      "date": "2022-04-23T18:25:43.511Z",
+      "name": "Red Robin",
+      "category": "Food",
+      "amount": 18.99
+    },
+    {
+      "id": 23434265346,
+      "date": "2022-04-23T18:25:43.511Z",
+      "name": "Qdoba",
+      "category": "Food",
+      "amount": 58.99
+    }
+  ]
+}
