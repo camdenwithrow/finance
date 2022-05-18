@@ -6,7 +6,10 @@
 }
 
 .dash {
-  height: 1vh;
+  height: 100vh;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 4em 1fr;
 }
 
 /* NAVBAR */
@@ -147,10 +150,6 @@
 @media only screen and (max-width: 1200px) {
   .dash-grid {
     grid-template-columns: 50% 50%;
-  }
-
-  .dash-grid > * {
-    margin: 2em 0;
   }
 }
 

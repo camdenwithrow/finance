@@ -1,6 +1,6 @@
 /* Transactions */
 
-.grid-transact .transact-head,
+.transact-head,
 .transact {
   width: 100%;
   display: grid;
@@ -10,13 +10,13 @@
 }
 
 @media only screen and (max-width: 1200px) {
-  .grid-transact .transact-head,
+  .transact-head,
   .transact {
     grid-template-columns: 4rem 4rem 1fr 1fr 5rem;
   }
 }
 
-.grid-transact .transact-head {
+.transact-head {
   text-transform: uppercase;
   border-bottom: 2px solid grey;
   font-weight: bold;
@@ -27,12 +27,12 @@
   border-bottom: 2px dashed rgb(185, 185, 185);
 }
 
-.grid-transact .transact-head *,
+.transact-head *,
 .transact * {
   margin: 0.5rem;
 }
 
-.grid-transact .transact-container {
+.transact-container {
   width: 100%;
 }
 
