@@ -24,7 +24,7 @@
 }
 
 .transact {
-  border-bottom: 2px dashed rgb(185, 185, 185);
+  border-bottom: 2px dashed var(--lightgrey);
 }
 
 .transact-head *,
@@ -58,7 +58,7 @@
 
 .checkmark {
   position: absolute;
-  top: -50%;
+  top: -70%;
   left: 0;
   height: 25px;
   width: 25px;
@@ -68,7 +68,7 @@
 
 .transact-head .checkmark {
   border-radius: 10%;
-  top: -75%;
+  top: -100%;
 }
 
 .check-container:hover input ~ .checkmark {
@@ -76,7 +76,7 @@
 }
 
 .check-container input:checked ~ .checkmark {
-  background-color: rgb(36, 96, 36);
+  background-color: var(--secondary);
 }
 
 .checkmark:after {

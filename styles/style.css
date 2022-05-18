@@ -3,6 +3,14 @@
   padding: 0;
   border: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+:root {
+  --primary: rgba(32, 23, 172, 1);
+  --secondary: rgba(0, 116, 213, 1);
+  --lightgrey: #e1e1e1;
+  --white: #ffffff;
 }
 
 .dash {
@@ -12,6 +20,13 @@
   grid-template-rows: 4em 1fr;
 }
 
+@media only screen and (max-width: 900px) {
+  .dash {
+    overflow: visible;
+    height: auto;
+  }
+}
+
 /* NAVBAR */
 
 .heading {
@@ -19,8 +34,13 @@
   justify-content: space-between;
   align-items: center;
 
-  padding: 0.5em;
-  background-color: rgb(36, 96, 36);
+  padding: 0.5em 1em;
+  background: var(--primary);
+  background: linear-gradient(
+    38deg,
+    var(--primary) 33%,
+    rgba(0, 116, 213, 1) 100%
+  );
   color: white;
 }
 
@@ -56,11 +76,11 @@
 }
 
 .login:active {
-  color: rgb(213, 213, 213);
+  color: var(--lightgrey);
 }
 
 .login:active::after {
-  background-color: rgb(213, 213, 213);
+  background-color: var(--lightgrey);
 }
 
 .login:hover::after {
@@ -73,7 +93,7 @@
   background-color: white;
   border-radius: 0.5em;
   font-weight: bold;
-  color: rgb(36, 96, 36);
+  color: var(--secondary);
 
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 
@@ -104,15 +124,26 @@
 }
 
 .signup:active {
-  background-color: rgb(213, 213, 213);
-  color: rgb(68, 126, 68);
+  background-color: var(--lightgrey);
+  color: var(--secondary);
 }
 
 /* DASHBOARD */
 
-.container {
-  background-color: rgb(226, 234, 227);
+.main {
+  background-color: #f5f5f5e5;
+  color: rgb(62, 62, 62);
   padding: 3em;
+}
+
+@media only screen and (max-width: 900px) {
+  .main {
+    padding: 0 1em;
+  }
+}
+
+.container {
+  margin: 0 auto;
 }
 
 .dash-grid {
@@ -149,7 +180,7 @@
 
 @media only screen and (max-width: 1200px) {
   .dash-grid {
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 45% 55%;
   }
 }
 
@@ -157,11 +188,32 @@
 
 .card {
   background-color: white;
-  padding: 1em;
+  padding: 1em 1em 0 1em;
   border-radius: 0.25em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  max-height: calc(100vh - 17.5em);
+  overflow-y: hidden;
 }
 
+@media only screen and (max-width: 900px) {
+  .card {
+    max-height: fit-content;
+  }
+}
+
+.card-head, .card-body {
+  width: 100%;
+}
+
+.card-body {  
+  overflow-y: scroll;
+}
+
+.card-head > h3 {
+  margin: 0.5em;
+}

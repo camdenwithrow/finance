@@ -1,7 +1,10 @@
 .budget-head,
 .budget-item-container {
-  border-bottom: 2px solid grey;
   width: 100%;
+}
+
+.budget-head {
+    border-bottom: 2px solid grey;
 }
 
 .budget-head,
@@ -38,11 +41,15 @@
   font-size: small;
 }
 
-.budget-head p,
-.budget-item p {
+.budget-item-container {
+    margin: 0.5rem 0;
+}
+
+.budget-head p {
   margin: 0.5rem;
 }
 
+.budget-item p,
 .sub-budget p {
     margin: 0 0.5rem;
 }
