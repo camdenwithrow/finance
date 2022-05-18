@@ -10,7 +10,6 @@ function dropdown(e) {
 
   // If unopened
   if (arrow.classList.contains("right")) {
-      console.log("Down")
     arrow.classList.add("down");
     arrow.classList.remove("right");
 
@@ -84,12 +83,11 @@ function getBudgets(categories) {
     const subCategories = categories[key]["subCategories"];
     const subBudgetContainer = document.createElement("div");
     if (subCategories !== {}) {
-        
       Object.keys(subCategories).forEach((key) => {
         const name = key;
         const subBudgetedNum = subCategories[key]["budgeted"];
         const subActualNum = subCategories[key]["actual"];
-        
+
         const subBudget = document.createElement("div");
         const placeholder = document.createElement("div");
         const subCategory = document.createElement("p");
@@ -143,7 +141,68 @@ function getBudgets(categories) {
   });
 }
 
-function getTransactions(transactions) {}
+{
+  /* <div class="transact">
+  <label class="check-container">
+    <input type="checkbox" checked="checked" />
+    <span class="checkmark"></span>
+  </label>
+  <div class="date">12/12</div>
+  <div class="name">Chipotle</div>
+  <div class="category">Restaurants</div>
+  <div class="amount">$1000.59</div>
+</div>; */
+}
+
+function getTransactions(transactionsList) {
+  Object.keys(transactionsList).forEach((key) => {
+    const id = transactionsList[key]["id"];
+    const date = new Date(transactionsList[key]["date"]).toLocaleDateString(
+      "en-us",
+      { year: "2-digit", month: "numeric" }
+    );
+    const name = transactionsList[key]["name"];
+    const category = transactionsList[key]["category"];
+    const amount = transactionsList[key]["amount"];
+
+    const transact = document.createElement("div");
+    const checkContainer = document.createElement("label");
+    const checkbox = document.createElement("input");
+    const checkmark = document.createElement("span");
+    const dateField = document.createElement("div");
+    const nameField = document.createElement("div");
+    const categoryField = document.createElement("div");
+    const amountField = document.createElement("div");
+
+    transact.appendChild(checkContainer);
+    transact.appendChild(dateField);
+    transact.appendChild(nameField);
+    transact.appendChild(categoryField);
+    transact.appendChild(amountField);
+
+    checkContainer.appendChild(checkbox);
+    checkContainer.appendChild(checkmark);
+
+    transact.classList.add("transact");
+    checkContainer.classList.add("check-container");
+    checkbox.classList.add("checkbox");
+    checkmark.classList.add("checkmark");
+    dateField.classList.add("date");
+    nameField.classList.add("name");
+    categoryField.classList.add("category");
+    amountField.classList.add("amount");
+
+    checkbox.setAttribute("type", "checkbox");
+    checkbox.setAttribute("checked", "checked");
+
+    dateField.innerText = date;
+    nameField.innerText = name;
+    categoryField.innerText = category;
+    amountField.innerText = amount;
+
+    transactions.appendChild(transact);
+  });
+}
 
 function sortData(data) {
   getNetWorth(data.worth);
