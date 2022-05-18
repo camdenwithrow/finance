@@ -1,5 +1,14 @@
 "use strict";
 
+// TODO
+// Edit buttons
+// Checkboxes to work
+// Only dropdowns on multiple ones
+// CLickable as filters for transactions
+// edit transactions
+// PLAID
+//  Auth obvi
+
 const worth = document.getElementById("net-worth");
 const budget = document.getElementById("budget");
 const transactions = document.getElementById("transactions");
@@ -141,19 +150,6 @@ function getBudgets(categories) {
   });
 }
 
-{
-  /* <div class="transact">
-  <label class="check-container">
-    <input type="checkbox" checked="checked" />
-    <span class="checkmark"></span>
-  </label>
-  <div class="date">12/12</div>
-  <div class="name">Chipotle</div>
-  <div class="category">Restaurants</div>
-  <div class="amount">$1000.59</div>
-</div>; */
-}
-
 function getTransactions(transactionsList) {
   Object.keys(transactionsList).forEach((key) => {
     const id = transactionsList[key]["id"];
@@ -193,7 +189,8 @@ function getTransactions(transactionsList) {
     amountField.classList.add("amount");
 
     checkbox.setAttribute("type", "checkbox");
-    checkbox.setAttribute("checked", "checked");
+    checkbox.setAttribute("name", "select-transaction");
+    checkbox.setAttribute("value", id);
 
     dateField.innerText = date;
     nameField.innerText = name;
@@ -204,14 +201,37 @@ function getTransactions(transactionsList) {
   });
 }
 
+function editTransactions() {
+  const checkboxes = document.querySelectorAll(
+    "input[type=checkbox][name=select-transaction]"
+  );
+  let enabledSettings = [];
+
+  // Use Array.forEach to add an event listener to each checkbox.
+  checkboxes.forEach(function (checkbox) {
+    checkbox.addEventListener("change", function () {
+      enabledSettings = Array.from(checkboxes)
+        .filter((i) => i.checked)
+        .map((i) => i.value);
+    });
+  });
+
+  return enabledSettings;
+}
+
 function sortData(data) {
   getNetWorth(data.worth);
   getBudgets(data.budgetCategories);
   getTransactions(data.transactions);
 }
 
+function main(data) {
+  sortData(data);
+  const checkedIds = editTransactions();
+}
+
 fetch("./data.json")
   .then((response) => {
     return response.json();
   })
-  .then((resp) => sortData(resp));
+  .then((resp) => main(resp));
