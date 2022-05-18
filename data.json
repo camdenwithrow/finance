@@ -5,25 +5,75 @@
     "other": 5555
   },
   "budgetCategories": {
-    "House": { "budgeted": 500, "actual": 400, "subCategories": {} },
-    "Utilities": { "budgeted": 500, "actual": 400, "subCategories": {} },
-    "Food": {
+    "House": {
+      "id": 2142314,
       "budgeted": 500,
       "actual": 400,
-      "subCategories": { "restaurants": 200, "groceries": 300 }
+      "subCategories": {}
+    },
+    "Utilities": {
+      "id": 452345,
+      "budgeted": 500,
+      "actual": 400,
+      "subCategories": {}
+    },
+    "Food": {
+      "id": 23462346,
+      "budgeted": 500,
+      "actual": 400,
+      "subCategories": {
+        "restaurants": { "id": 23525, "budgeted": 500, "actual": 400 },
+        "groceries": { "id": 23462346, "budgeted": 500, "actual": 400 }
+      }
     },
     "Transportation": {
+      "id": 234346346,
       "budgeted": 500,
       "actual": 400,
       "subCategories": { "gas": 50, "rideShare": 25 }
     },
-    "Insurance": { "budgeted": 500, "actual": 400, "subCategories": {} },
-    "Personal": { "budgeted": 500, "actual": 400, "subCategories": {} },
-    "Savings": { "budgeted": 500, "actual": 400, "subCategories": {} },
-    "Giving": { "budgeted": 500, "actual": 400, "subCategories": {} },
-    "Fun": { "budgeted": 500, "actual": 400, "subCategories": {} },
-    "Clothes": { "budgeted": 500, "actual": 400, "subCategories": {} },
-    "Travel": { "budgeted": 500, "actual": 400, "subCategories": {} }
+    "Insurance": {
+      "id": 34564563,
+      "budgeted": 500,
+      "actual": 400,
+      "subCategories": {}
+    },
+    "Personal": {
+      "id": 5467567,
+      "budgeted": 500,
+      "actual": 400,
+      "subCategories": {}
+    },
+    "Savings": {
+      "id": 5234523,
+      "budgeted": 500,
+      "actual": 400,
+      "subCategories": {}
+    },
+    "Giving": {
+      "id": 8765653,
+      "budgeted": 500,
+      "actual": 400,
+      "subCategories": {}
+    },
+    "Fun": {
+      "id": 654344,
+      "budgeted": 500,
+      "actual": 400,
+      "subCategories": {}
+    },
+    "Clothes": {
+      "id": 546375735,
+      "budgeted": 500,
+      "actual": 400,
+      "subCategories": {}
+    },
+    "Travel": {
+      "id": 242342535,
+      "budgeted": 500,
+      "actual": 400,
+      "subCategories": {}
+    }
   },
   "transactions": [
     {
