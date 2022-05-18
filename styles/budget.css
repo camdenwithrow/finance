@@ -35,8 +35,14 @@
   left: -0.75em;
 }
 
+.sub-budget-container {
+  transition: height 0.5s ease;
+  overflow: hidden;
+  text-transform: capitalize;
+}
+
 .sub-hidden {
-    display: none;
+  display: none;
 }
 
 .budget-head {

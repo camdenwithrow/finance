@@ -22,15 +22,18 @@
       "budgeted": 500,
       "actual": 400,
       "subCategories": {
-        "restaurants": { "id": 23525, "budgeted": 500, "actual": 400 },
-        "groceries": { "id": 23462346, "budgeted": 500, "actual": 400 }
+        "Restaurants": { "id": 23525, "budgeted": 500, "actual": 400 },
+        "Groceries": { "id": 23462346, "budgeted": 500, "actual": 400 }
       }
     },
     "Transportation": {
       "id": 234346346,
       "budgeted": 500,
       "actual": 400,
-      "subCategories": { "gas": 50, "rideShare": 25 }
+      "subCategories": {
+        "gas": { "id": 45635645, "budgeted": 20, "actual": 10 },
+        "rideShare": { "id": 23456235, "budgeted": 50, "actual": 40 }
+      }
     },
     "Insurance": {
       "id": 34564563,

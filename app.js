@@ -5,14 +5,37 @@ const budget = document.getElementById("budget");
 const transactions = document.getElementById("transactions");
 
 function dropdown(e) {
-  // If unopened
+  const subCategories = e.target.parentElement.nextElementSibling;
   const arrow = e.target.firstChild;
+
+  // If unopened
   if (arrow.classList.contains("right")) {
+      console.log("Down")
     arrow.classList.add("down");
     arrow.classList.remove("right");
+
+    subCategories.classList.remove("sub-hidden");
+    subCategories.style.height = "auto";
+
+    const height = subCategories.clientHeight + "px";
+
+    subCategories.style.height = "0px";
+
+    setTimeout(() => {
+      subCategories.style.height = height;
+    }, 0);
   } else {
     arrow.classList.add("right");
     arrow.classList.remove("down");
+
+    subCategories.style.height = "0px";
+    subCategories.addEventListener(
+      "transitionend",
+      () => {
+        subCategories.classList.add("sub-hidden");
+      },
+      { once: true }
+    );
   }
 
   const id = e.target.parentElement.id;
@@ -59,29 +82,28 @@ function getBudgets(categories) {
     const actualAmt = document.createElement("p");
 
     const subCategories = categories[key]["subCategories"];
-    const subFragment = document.createDocumentFragment();
+    const subBudgetContainer = document.createElement("div");
     if (subCategories !== {}) {
+        
       Object.keys(subCategories).forEach((key) => {
         const name = key;
         const subBudgetedNum = subCategories[key]["budgeted"];
         const subActualNum = subCategories[key]["actual"];
-
-        const subBudgetContainer = document.createElement("div");
+        
         const subBudget = document.createElement("div");
         const placeholder = document.createElement("div");
         const subCategory = document.createElement("p");
         const subBudgetAmt = document.createElement("p");
         const subActualAmt = document.createElement("p");
 
-        subFragment.appendChild(subBudgetContainer);
         subBudgetContainer.appendChild(subBudget);
         subBudget.appendChild(placeholder);
         subBudget.appendChild(subCategory);
         subBudget.appendChild(subBudgetAmt);
         subBudget.appendChild(subActualAmt);
 
-        subBudgetContainer.classList.add("sub-budget-container");
-        subBudget.classList.add("sub-budget", "sub-hidden");
+        subBudgetContainer.classList.add("sub-budget-container", "sub-hidden");
+        subBudget.classList.add("sub-budget");
 
         subCategory.innerText = name;
         subActualAmt.innerText = formatAsDollar(subActualNum);
@@ -92,7 +114,7 @@ function getBudgets(categories) {
     fragment.appendChild(budgetItemContainer);
 
     budgetItemContainer.appendChild(budgetItem);
-    budgetItemContainer.appendChild(subFragment);
+    budgetItemContainer.appendChild(subBudgetContainer);
 
     budgetItem.appendChild(button);
     budgetItem.appendChild(category);
