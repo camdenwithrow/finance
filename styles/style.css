@@ -17,6 +17,10 @@ button {
   --white: #ffffff;
 }
 
+.main {
+  position: relative;
+}
+
 .dash {
   height: 100vh;
   overflow: hidden;
@@ -285,3 +289,28 @@ button {
 .edit-card:hover, .maximize-card:hover {
   color: var(--secondary);
 }
+
+/* Modals */
+
+.modal-container {
+  position: absolute;
+
+  display: none;
+
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(77, 77, 77, 0.5);
+  z-index: 100;
+}
+.modal-content {
+  margin: auto;
+  padding: 2em;
+  margin-top: 3.5em;
+  width: 80%;
+  background-color: white;
+  opacity: 1;
+}
+.modal-head {}
+.modal-body {}

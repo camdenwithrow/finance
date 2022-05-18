@@ -4,6 +4,26 @@ const worth = document.getElementById("net-worth");
 const budget = document.getElementById("budget");
 const transactions = document.getElementById("transactions");
 
+const editBudgetCard = document.querySelector(".grid-budget .edit-card");
+const expandBudgetCard = document.querySelector(".grid-budget .maximize-card");
+const editTransactCard = document.querySelector(".grid-transact .edit-card");
+const expandTransactCard = document.querySelector(
+  ".grid-transact .maximize-card"
+);
+
+editBudgetCard.addEventListener("click", () => {
+  openModal();
+});
+expandBudgetCard.addEventListener("click", () => {
+  openModal();
+});
+editTransactCard.addEventListener("click", () => {
+  openModal();
+});
+expandTransactCard.addEventListener("click", () => {
+  openModal();
+});
+
 function dropdown(e) {
   const subCategories = e.target.parentElement.nextElementSibling;
   const arrow = e.target.firstChild;
@@ -84,8 +104,6 @@ function getBudgets(categories) {
 
     const subCategories = categories[key]["subCategories"];
     const subBudgetContainer = document.createElement("div");
-
-    console.log(subCategories);
 
     if (Object.keys(subCategories).length > 0) {
       const button = document.createElement("button");
