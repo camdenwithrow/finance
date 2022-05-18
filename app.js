@@ -1,5 +1,14 @@
 "use strict";
 
+// TODO
+// Edit buttons
+// Checkboxes to work
+// Only dropdowns on multiple ones
+// CLickable as filters for transactions
+// edit transactions
+// PLAID
+//  Auth obvi
+
 const worth = document.getElementById("net-worth");
 const budget = document.getElementById("budget");
 const transactions = document.getElementById("transactions");
@@ -10,7 +19,6 @@ function dropdown(e) {
 
   // If unopened
   if (arrow.classList.contains("right")) {
-      console.log("Down")
     arrow.classList.add("down");
     arrow.classList.remove("right");
 
@@ -84,12 +92,11 @@ function getBudgets(categories) {
     const subCategories = categories[key]["subCategories"];
     const subBudgetContainer = document.createElement("div");
     if (subCategories !== {}) {
-        
       Object.keys(subCategories).forEach((key) => {
         const name = key;
         const subBudgetedNum = subCategories[key]["budgeted"];
         const subActualNum = subCategories[key]["actual"];
-        
+
         const subBudget = document.createElement("div");
         const placeholder = document.createElement("div");
         const subCategory = document.createElement("p");
@@ -143,7 +150,74 @@ function getBudgets(categories) {
   });
 }
 
-function getTransactions(transactions) {}
+function getTransactions(transactionsList) {
+  Object.keys(transactionsList).forEach((key) => {
+    const id = transactionsList[key]["id"];
+    const date = new Date(transactionsList[key]["date"]).toLocaleDateString(
+      "en-us",
+      { year: "2-digit", month: "numeric" }
+    );
+    const name = transactionsList[key]["name"];
+    const category = transactionsList[key]["category"];
+    const amount = transactionsList[key]["amount"];
+
+    const transact = document.createElement("div");
+    const checkContainer = document.createElement("label");
+    const checkbox = document.createElement("input");
+    const checkmark = document.createElement("span");
+    const dateField = document.createElement("div");
+    const nameField = document.createElement("div");
+    const categoryField = document.createElement("div");
+    const amountField = document.createElement("div");
+
+    transact.appendChild(checkContainer);
+    transact.appendChild(dateField);
+    transact.appendChild(nameField);
+    transact.appendChild(categoryField);
+    transact.appendChild(amountField);
+
+    checkContainer.appendChild(checkbox);
+    checkContainer.appendChild(checkmark);
+
+    transact.classList.add("transact");
+    checkContainer.classList.add("check-container");
+    checkbox.classList.add("checkbox");
+    checkmark.classList.add("checkmark");
+    dateField.classList.add("date");
+    nameField.classList.add("name");
+    categoryField.classList.add("category");
+    amountField.classList.add("amount");
+
+    checkbox.setAttribute("type", "checkbox");
+    checkbox.setAttribute("name", "select-transaction");
+    checkbox.setAttribute("value", id);
+
+    dateField.innerText = date;
+    nameField.innerText = name;
+    categoryField.innerText = category;
+    amountField.innerText = amount;
+
+    transactions.appendChild(transact);
+  });
+}
+
+function editTransactions() {
+  const checkboxes = document.querySelectorAll(
+    "input[type=checkbox][name=select-transaction]"
+  );
+  let enabledSettings = [];
+
+  // Use Array.forEach to add an event listener to each checkbox.
+  checkboxes.forEach(function (checkbox) {
+    checkbox.addEventListener("change", function () {
+      enabledSettings = Array.from(checkboxes)
+        .filter((i) => i.checked)
+        .map((i) => i.value);
+    });
+  });
+
+  return enabledSettings;
+}
 
 function sortData(data) {
   getNetWorth(data.worth);
@@ -151,8 +225,13 @@ function sortData(data) {
   getTransactions(data.transactions);
 }
 
+function main(data) {
+  sortData(data);
+  const checkedIds = editTransactions();
+}
+
 fetch("./data.json")
   .then((response) => {
     return response.json();
   })
-  .then((resp) => sortData(resp));
+  .then((resp) => main(resp));
