@@ -4,6 +4,20 @@ const worth = document.getElementById("net-worth");
 const budget = document.getElementById("budget");
 const transactions = document.getElementById("transactions");
 
+function dropdown(e) {
+  // If unopened
+  const arrow = e.target.firstChild;
+  if (arrow.classList.contains("right")) {
+    arrow.classList.add("down");
+    arrow.classList.remove("right");
+  } else {
+    arrow.classList.add("right");
+    arrow.classList.remove("down");
+  }
+
+  const id = e.target.parentElement.id;
+}
+
 function formatAsDollar(num) {
   return new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -34,7 +48,7 @@ function getBudgets(categories) {
     const budgetedNum = categories[key]["budgeted"];
     const actualNum = categories[key]["actual"];
 
-    const item = document.createDocumentFragment();
+    const fragment = document.createDocumentFragment();
 
     const budgetItemContainer = document.createElement("div");
     const budgetItem = document.createElement("div");
@@ -44,9 +58,41 @@ function getBudgets(categories) {
     const budgetAmt = document.createElement("p");
     const actualAmt = document.createElement("p");
 
-    item.appendChild(budgetItemContainer);
+    const subCategories = categories[key]["subCategories"];
+    const subFragment = document.createDocumentFragment();
+    if (subCategories !== {}) {
+      Object.keys(subCategories).forEach((key) => {
+        const name = key;
+        const subBudgetedNum = subCategories[key]["budgeted"];
+        const subActualNum = subCategories[key]["actual"];
+
+        const subBudgetContainer = document.createElement("div");
+        const subBudget = document.createElement("div");
+        const placeholder = document.createElement("div");
+        const subCategory = document.createElement("p");
+        const subBudgetAmt = document.createElement("p");
+        const subActualAmt = document.createElement("p");
+
+        subFragment.appendChild(subBudgetContainer);
+        subBudgetContainer.appendChild(subBudget);
+        subBudget.appendChild(placeholder);
+        subBudget.appendChild(subCategory);
+        subBudget.appendChild(subBudgetAmt);
+        subBudget.appendChild(subActualAmt);
+
+        subBudgetContainer.classList.add("sub-budget-container");
+        subBudget.classList.add("sub-budget", "sub-hidden");
+
+        subCategory.innerText = name;
+        subActualAmt.innerText = formatAsDollar(subActualNum);
+        subBudgetAmt.innerText = formatAsDollar(subBudgetedNum);
+      });
+    }
+
+    fragment.appendChild(budgetItemContainer);
 
     budgetItemContainer.appendChild(budgetItem);
+    budgetItemContainer.appendChild(subFragment);
 
     budgetItem.appendChild(button);
     budgetItem.appendChild(category);
@@ -55,8 +101,9 @@ function getBudgets(categories) {
 
     button.appendChild(icon);
 
-    budgetItemContainer.setAttribute("id", id);
     budgetItemContainer.classList.add("budget-item-container");
+
+    budgetItem.setAttribute("id", id);
     budgetItem.classList.add("budget-item");
     button.classList.add("expand-budget");
     icon.classList.add("arrow", "right");
@@ -68,7 +115,9 @@ function getBudgets(categories) {
     actualAmt.innerText = formatAsDollar(actualNum);
     budgetAmt.innerText = formatAsDollar(budgetedNum);
 
-    budget.appendChild(item);
+    button.addEventListener("click", dropdown);
+
+    budget.appendChild(fragment);
   });
 }
 
