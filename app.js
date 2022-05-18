@@ -1,14 +1,5 @@
 "use strict";
 
-// TODO
-// Edit buttons
-// Checkboxes to work
-// Only dropdowns on multiple ones
-// CLickable as filters for transactions
-// edit transactions
-// PLAID
-//  Auth obvi
-
 const worth = document.getElementById("net-worth");
 const budget = document.getElementById("budget");
 const transactions = document.getElementById("transactions");
@@ -83,15 +74,25 @@ function getBudgets(categories) {
 
     const budgetItemContainer = document.createElement("div");
     const budgetItem = document.createElement("div");
-    const button = document.createElement("button");
-    const icon = document.createElement("div");
+    const actionItem = document.createDocumentFragment();
     const category = document.createElement("p");
     const budgetAmt = document.createElement("p");
     const actualAmt = document.createElement("p");
 
     const subCategories = categories[key]["subCategories"];
     const subBudgetContainer = document.createElement("div");
-    if (subCategories !== {}) {
+
+    console.log(subCategories)
+
+    if (Object.keys(subCategories).length > 0) {
+      const button = document.createElement("button");
+      const icon = document.createElement("div");
+      actionItem.appendChild(button);
+      button.appendChild(icon);
+      button.classList.add("expand-budget");
+      icon.classList.add("arrow", "right");
+      button.addEventListener("click", dropdown);
+
       Object.keys(subCategories).forEach((key) => {
         const name = key;
         const subBudgetedNum = subCategories[key]["budgeted"];
@@ -116,26 +117,24 @@ function getBudgets(categories) {
         subActualAmt.innerText = formatAsDollar(subActualNum);
         subBudgetAmt.innerText = formatAsDollar(subBudgetedNum);
       });
+    } else {
+      const emptyAction = document.createElement("div");
+      actionItem.appendChild(emptyAction);
     }
 
     fragment.appendChild(budgetItemContainer);
-
     budgetItemContainer.appendChild(budgetItem);
     budgetItemContainer.appendChild(subBudgetContainer);
 
-    budgetItem.appendChild(button);
+    budgetItem.appendChild(actionItem);
     budgetItem.appendChild(category);
     budgetItem.appendChild(budgetAmt);
     budgetItem.appendChild(actualAmt);
-
-    button.appendChild(icon);
 
     budgetItemContainer.classList.add("budget-item-container");
 
     budgetItem.setAttribute("id", id);
     budgetItem.classList.add("budget-item");
-    button.classList.add("expand-budget");
-    icon.classList.add("arrow", "right");
     category.classList.add("category");
     budgetAmt.classList.add("budget-amt");
     actualAmt.classList.add("actual-amt");
@@ -143,8 +142,6 @@ function getBudgets(categories) {
     category.innerText = name;
     actualAmt.innerText = formatAsDollar(actualNum);
     budgetAmt.innerText = formatAsDollar(budgetedNum);
-
-    button.addEventListener("click", dropdown);
 
     budget.appendChild(fragment);
   });
