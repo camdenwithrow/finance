@@ -1,0 +1,48 @@
+{
+  "worth": {
+    "cash": 12345,
+    "investments": 9876,
+    "other": 5555
+  },
+  "budgetCategories": {
+    "House": { "budgeted": 500, "actual": 400, "subCategories": {} },
+    "Utilities": { "budgeted": 500, "actual": 400, "subCategories": {} },
+    "Food": {
+      "budgeted": 500,
+      "actual": 400,
+      "subCategories": { "restaurants": 200, "groceries": 300 }
+    },
+    "Transportation": {
+      "budgeted": 500,
+      "actual": 400,
+      "subCategories": { "gas": 50, "rideShare": 25 }
+    },
+    "Insurance": { "budgeted": 500, "actual": 400, "subCategories": {} },
+    "Personal": { "budgeted": 500, "actual": 400, "subCategories": {} },
+    "Savings": { "budgeted": 500, "actual": 400, "subCategories": {} },
+    "Giving": { "budgeted": 500, "actual": 400, "subCategories": {} },
+    "Fun": { "budgeted": 500, "actual": 400, "subCategories": {} },
+    "Clothes": { "budgeted": 500, "actual": 400, "subCategories": {} },
+    "Travel": { "budgeted": 500, "actual": 400, "subCategories": {} }
+  },
+  "transactions": [
+    {
+      "date": "2022-04-23T18:25:43.511Z",
+      "name": "Chipotle",
+      "category": "Food",
+      "amount": 12.55
+    },
+    {
+      "date": "2022-04-23T18:25:43.511Z",
+      "name": "Red Robin",
+      "category": "Food",
+      "amount": 18.99
+    },
+    {
+      "date": "2022-04-23T18:25:43.511Z",
+      "name": "Qdoba",
+      "category": "Food",
+      "amount": 58.99
+    }
+  ]
+}
