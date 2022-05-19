@@ -11,7 +11,7 @@
 .budget-item,
 .sub-budget {
   display: grid;
-  grid-template-columns: 3rem 1fr 5rem 5rem;
+  grid-template-columns: 3rem 1fr 6rem 5rem;
   padding: 0.25em;
 }
 
@@ -60,18 +60,37 @@
 }
 
 .budget-item-container .text-right {
-    display: flex;
-    justify-content: end;
+  display: flex;
+  justify-content: end;
+  align-items: center;
 }
 
-.budget-item p,
+.budget-amt {
+  padding: 0.5em;
+  border-radius: 0.4em;
+  cursor: text;
+}
+
+.budget-amt:hover {
+  background-color: var(--lightgrey);
+}
+
+.budget-item p {
+  margin: 0.5rem;
+}
+
+.sub-budget > div {
+  display: flex;
+  align-items: center;
+}
+
 .sub-budget p {
   margin: 0 0.5rem;
 }
 
 .sub-budget .category {
-    padding: 0 0.5em;
-    font-style: italic;
+  padding: 0 0.5em;
+  font-style: italic;
 }
 
 .budget-item .expand-budget {
@@ -102,5 +121,5 @@
 
 /* Modal */
 
-.budget-modal{}
-
+.budget-modal {
+}

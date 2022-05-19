@@ -99,7 +99,7 @@ function getBudgets(categories) {
     const budgetAmtDiv = document.createElement("div");
     const actualAmtDiv = document.createElement("div");
     const category = document.createElement("p");
-    const budgetAmt = document.createElement("p");
+    const budgetAmt = document.createElement("div");
     const actualAmt = document.createElement("p");
 
     const subCategories = categories[key]["subCategories"];
@@ -125,7 +125,7 @@ function getBudgets(categories) {
         const subBudgetAmtDiv = document.createElement("div");
         const subActualAmtDiv = document.createElement("div");
         const subCategory = document.createElement("p");
-        const subBudgetAmt = document.createElement("p");
+        const subBudgetAmt = document.createElement("div");
         const subActualAmt = document.createElement("p");
 
         subBudgetContainer.appendChild(subBudget);
@@ -143,6 +143,7 @@ function getBudgets(categories) {
         subCategory.classList.add("category");
         subBudgetAmtDiv.classList.add("text-right");
         subActualAmtDiv.classList.add("text-right");
+        subBudgetAmt.classList.add("budget-amt");
 
         subCategory.innerText = name;
         subActualAmt.innerText = formatAsDollar(subActualNum);
